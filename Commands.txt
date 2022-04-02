@@ -1,0 +1,1048 @@
+---LINUX
+---BASH
+---GIT
+---GITLAB CI/CD
+---DOCKER
+---KUBERNETES
+---HELM
+---TERRAFORM
+---AWS
+---AZURE AKS
+
+---LINUX---
+ctrl+u -> clears line
+ctrl+a -> go to line start
+ctrl+e -> go to line end
+alt+b -> move back one word
+alt+f -> move forward one word
+ctrl+w -> cut the last word
+ctrl+k -> cut everything after the cursor
+ctrl+u -> cut everything before the cursor
+ctrl+_ -> Undo
+PROMPT_DIRTRIM=1 -> trims current working directory path in terminal
+cat /etc/*release* -> display info on linux distribution
+sudo apt-get update -> update packages
+apt-get install name -> install packages
+sudo dpkg -i package_name.deb -> installs debian packages
+code . -> opens vs code in current directory
+curl localhost
+whoami -> displays the current username
+history -> shows history of commands
+tree . -> shows folder structure as tree
+cd .. -> one directory up
+cd ../folder2 -> goes back one folder and opens folder2
+cd ~/ (or) $HOME -> go to home directory
+cd folder;ls -> opens folder and lists the contents
+cd - -> goes back to previous directory
+ls -l -> list all files with permissions
+ls -la -> list all with hidden files
+pwd -> prints current working directory
+touch file.txt -> creates a file
+> file_name -> clears content inside file
+mv old_name new_name -> renames a file
+mv file /usr/local/bin -> move a file to another location
+rm file_name -> removes the file
+mkdir .folder -> folder or filename with dot creates hidden files/folders
+
+
+ps -e -> displays info on every running processes
+kill process_id -> used to kill a process using process id
+killall process_name -> used to kill multiple process using its name
+chmod -> change file permission for users or group to read, write & execute
+chown -> change ownership of files or folders
+alias cls=clear -> used to create an alias shortcut for a command
+unalias -> removes the assigned alias
+useradd NewUser -d /home/NU -> used to create a new user
+usermod -> used to modify the existing user
+userdel -> used to delete a user
+passwd -> used to create password for user accounts
+more -> used to view large text files for easy access and scrolling
+less -> used to read the contents of a text file one page(one screen) at a time
+which -a folder_name -> used to print matching path names of given file or folder name
+head file_name -> displays first 10 lines of a given file
+tail file_name -> displays last 10 lines of a given file
+grep -> used to search for a specific string within an output file
+uname -> used to get basic information about the OS
+find -> list all files in a directory including files inside folders
+zip -> used to zip an archive
+unzip -> used to unzip an archive
+jobs -> used to run jobs in foreground or background
+mount -> used to mount file systems in linux 
+umount -> used to unmount file systems in linux 
+df -> used to display mounted file system disk space usage
+du -> used to find disk usage space of files in a directory
+diff file1 file2 -> used to compare differences between two files
+cmp -> used to compare if two files are identical
+wc -> used to count number of newline, words, byte and characters in a files
+ln -> used to create link to another file
+service -> used for starting and stopping different services within the operating system
+ifconfig -> display list of all the network interfaces along with the IP addresses, MAC addresses 
+iptables -> used to set up and maintain tables for the Netfilter firewall for IPv4
+whereis -> used to output the exact location of any command
+whatis -> used to output the explanation of a command
+dd
+export
+ping
+netstat
+nslookup
+cron
+fdisk
+chroot
+tee
+free
+getopt
+mkfs
+sort
+netcat
+traceroute
+wget
+sed & awk
+
+ip, ifup, ethtool, mtr, route, nmcli, ss, nc, nmap, host, dig, tcpdump, Wireshark, bmon, firewalld, ufw
+
+---BASH---
+cat /etc/shells -> shows available shells
+echo $SHELL -> prints current shell
+printenv -> prints available environment variables
+nano ~/.bashrc -> file to add permanent environment variables
+. ~/.bashrc -> instructs terminal to reload the file
+export PATH=$PATH:home/Documents -> creates a temporary env variable to define path
+chmod +x (or) 755 file_name -> adds executable permission to file
+chmod u+x -> gives permission to user to execute file
+chmod u+r -> gives permission to user to read file
+sed -> non-interactive command line editor used to edit files without even opening them
+sed '4d' file1.txt > file2.txt -> deletes 4th line of file1 and creates a new file2
+wc -l file.txt -> word count of number of lines in given file
+cat file.txt | grep "hello" | wc -l -> prints word count of hello in file.txt
+grep -i "hello" file.txt -> searches for hello irrespective of case sensitivity
+more file.txt -> similar to cat but easy to view
+more +(search_term) file.txt -> searches for search term in file and displays it
+cat << EOF-> used to specify multiple lines of code/command
+line1
+line2
+EOF (this delimiter word can be anything)
+
+script.sh => bash script file
+#! /bin/bash -> shebang
+# this is a comment
+<<COMMENTS  
+  This is the first comment  
+  This is the second comment
+COMMENTS
+: '  
+This is the first comment  
+This is the second comment    
+'
+sleep 10s -> sleeps for 10 secs  
+echo "hello mars"
+echo "The script name : $0" -> position variables to pass arguments while running the script
+echo "First Name : $1"
+declare -A array-name -> used to declare an array
+array_name[key]=value -> assign values to array
+echo ${array_name[key]} -> print an array
+echo ${array_name[*]} -> print all in array
+unset arry_name[key] -> deletes the value from array
+read -a array_name -> gets values for array while running the script
+read -sp pass_value -> used to get password in silent mode 
+echo "Array values are ${array_name[0]}"
+let "x = $(( 10 + y ))" -> let is used to perform arithmetic operations  
+
+---GIT---
+sudo apt install git-all -> installs git on linux
+rm -rf .git/ -> removes git directory
+git --version -> displays version of git
+git config --global user.name "User Name" -> used to configure git in local system
+git config --global user.email "email id"
+git config --list -> lists all config file
+git remote (or) git remote -v -> view existing remotes
+git remote add <name> <url> -> create new connection to remote repo
+git remote add origin(name) url
+git remote add origin https://gitlab.com/tivona-explorer/arunalan.git
+git remote rm <name> -> removes connection to remote repo
+git help
+git status
+git clone repo_url -> create local repository based on remote repo
+git init -> to initialize a local repo
+git add . (or) git add file_name -> used to add the file in staging state
+git stash -> stashes the added file from staging area to backstage
+git stash pop -> moves file from backstage to staging area
+git stash clear -> clears the files from backstage
+git restore --staged file_name -> reverts the added file from staging environment
+git commit -m "Message"
+git reset commit_id -> resets all commits after the specified commit id
+git push -> pushes committed files to the repo
+git push <remote-shortname> <branch-name>
+git push -u origin branch_name -> pushes to branch_name where origin is remote name by default
+git push -uf origin master
+git pull -> pulls code from remote repo to get synched
+git pull <remote-shortname> master(optional branch_name)
+git fetch origin(remote_name) -> similar to pull,fetches code from remote origin but needs our permission to merge with local repo
+git merge -> to merge code from remote repo to local repo
+git branch -a -> lists all branch
+git branch -b branch_name -> creates a new branch
+git checkout -b branch_name -> switch to specified branch
+git checkout master -> switch to master branch
+git branch -M main -> switch to main branch
+pull request/merge branch_name -> request to merge sub-branch to master branch
+git log -> shows logs on previous commits
+git show commit_id -> shows info on commits
+git diff commit_id -> shows difference in file
+git access token: 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
+
+---GITLAB CI/CD---
+.gitlab-ci.yml => ci/cd pipeline configuration file
+stages:
+ - build - test - deploy - post - .pre
+jobname: -> can be any name
+ stage: deploy
+ environment:
+ when:
+ image: docker
+ services: -> used to start services
+  - docker:dind -> docker in docker serivce used to run docker deamon
+ script:
+ variables:
+ artifacts:
+ rules:
+ extends:
+
+.gitlab-ci.yml => sample config file to list jobs
+stages: -> defines available stages in file
+    - build
+    - test
+variables:
+    VARIALBLE_NAME: "Hello Mars"
+
+build_job: -> beginning of the job
+    image: alpine
+    stage: build
+    script: 
+        - echo "Build Software"
+        - mkdir build
+        - touch build/program.txt
+        - echo $VARIALBLE_NAME >> build/program.txt
+    artifacts: -> stores the build folder
+        paths:
+            - build        
+
+.test: -> job name with dot is used like a function to extend
+    image: alpine
+    script: 
+        - test -f build/program.txt -> tests if program.txt file exists
+        - grep "Hello Mars" build/program.txt -> finds if the text exists in the path
+        - serve -s build -> node command to start a server to view output
+
+test_job:
+    stage: test
+    environment: testing
+    extends: .test -> function call for .test, all steps in .test get placed and executed here
+
+deploy_s3:
+  stage: deploy
+  when: manual -> manually deploy
+  environment: production
+  image: 
+    name: amazon/aws-cli
+    entrypoint: [""] -> used to interact with aws cli
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH -> checks if current branch is default main/master only then deploys
+  script:
+    - aws --version
+    - aws s3 sync build s3://$AWS_S3_BUCKET -> syncs the build folder to s3 bucket
+    - curl $CI_ENVIRONMENT_URL -> gets the url from production env which is defined in gitlab environment section
+
+deploy_docker:
+  stage: containers
+  image: docker:20.10.12
+  services:
+    - docker:20.10.12-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY (or)
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin -> used to fetch password in real time using standard input
+    - docker build -t $CI_REGISTRY_IMAGE .
+    - docker image ls
+    - docker push --all-tags $CI_REGISTRY_IMAGE
+
+test_docker_image:
+    stage: test
+    image: curlimages/curl
+    services:
+        - name: $CI_REGISTRY_IMAGE -> used to start container with specified name
+          alias: website -> gitlab will match the network address of container to given alias
+    script:
+        - curl http://website/version.html
+
+deploy to production:
+    image:
+        name: amazon/aws-cli:2.4.11
+        entrypoint: [""]
+    stage: deploy
+    variables:
+        APP_NAME: My website
+        APP_ENV_NAME: Mywebsite-env    
+    environment: production
+    script:
+        - aws --version
+        - yum install -y gettext
+        - export DEPLOY_TOKEN=$(echo $GITLAB_DEPLOY_TOKEN | tr -d "\n" | base64) -> delpoy token used to authenticate into ebs
+        - envsubst < templates/Dockerrun.aws.json > Dockerrun.aws.json
+        - envsubst < templates/auth.json > auth.json -> makes the files as environmetn variables
+        - cat Dockerrun.aws.json
+        - cat auth.json
+        - aws s3 cp Dockerrun.aws.json s3://$AWS_S3_BUCKET/Dockerrun.aws.json
+        - aws s3 cp auth.json s3://$AWS_S3_BUCKET/auth.json
+        - aws elasticbeanstalk create-application-version --application-name "$APP_NAME" --version-label $APP_VERSION --source-bundle S3Bucket=$AWS_S3_BUCKET,S3Key=Dockerrun.aws.json
+        - aws elasticbeanstalk update-environment --application-name "$APP_NAME" --version-label $APP_VERSION --environment-name $APP_ENV_NAME
+        
+---DOCKER---
+sudo systemctl status docker
+sudo systemctl start docker
+sudo systemctl enable docker
+/var/lib/docker -> default location of docker host files
+docker system prune --all -> removes all containers & images
+docker info -> information on docker
+docker --version -> lists version
+docker login -> used to login to registry
+docker system df -v -> used to list disk usage
+docker run hello-world -> runs containers from image
+docker run -d --name=db postgres -> runs a postgress image with name db in detached mode in background
+docker run ubuntu:20.04 cat /etc/*release*
+docker run -e APP_COLOR=blue sample-app -> environment variable in run command
+docker run --name=frontend -p 5000:80 --link postgres:db python -> used to link python container with postgress cont named db
+docker start image-name -> starts the image
+docker stop hello-world -> stops the container
+docker stop $(docker ps -a -q) -> stops all running containers
+(or)
+docker kill $(docker ps -q) -> kills all running containers
+docker ps -> lists running containers
+docker ps -a -> lists available containers
+docker inspect container-name -> detailed info on container
+docker logs -f container-name -> logs of the container
+docker history image-name -> shows history
+docker image ls -a -> lists availabe images
+docker images -> lists availabe images
+docker rmi image-name -> removes the image
+docker rmi $(docker images -q) -> removes all the images
+docker rmi container-name -> removes the container
+docker rm $(docker ps -a -q) -> removes all the containers
+docker image pull ubuntu:version -> gets the image but doesn't run containers
+docker pull ubuntu -> gets the image but doesn't run containers
+docker run -it ubuntu /bin/bash -> interact with the terminal of container image
+docker run image-name/app-name -> runs container in the foreground
+docker run -d image-name/app-name -> runs container in the background in detached mode
+docker run -it --rm p 8080:80 image_name -> launches container in port 80 and removes the container when closed
+docker run -p 8080:80 --name hello -d hello-world -> expose port 80 and runs in detached mode
+docker attach container-id -> used to interact with running container
+docker exec container-id cat /etc/*release* -> used to execute command on running container
+docker exec container-id ps -eaf -> lists all processes running in a container
+dcoker run -p 80:5000 image-name/app-name -> use to map port 80 of public ip 192.168.1.5 to port 5000 of local host 172.17.0.2 
+docker volume create data_volume -> use to create a volume called data_volume
+docker run -v data_volume:/var/lib/mysql mysql -> use to create volume to store data from database
+(or)
+docker run \
+--mount type=bind,source=data_volume,target=/var/lib/mysql mysql
+docker -H=remote-docker-engine:2375 run nginx -> use to connect remote docker host through port 2375 and run nginx
+docker run --cpu=.5 ubuntu -> utilize only 50% of host cpu
+docker run --memory=100m ubuntu -> limits only to 100mb of memory usage
+docker build . -> used to build an app into docker image using dockerfile
+docker commit container_id image_name:version -> create an image from existing container
+docker network create \ -> used to create custom network between containers in docker host
+--driver bridge
+--subnet 182.18.0.0/16
+custom-isolated-network
+docker network ls -> list avaialble network
+docker swarm init -> initiates a swarm manager in a cluster
+docker swarm join --token <token> -> join the container as worker node to swarm manager
+docker service create --replicas=100 nodejs -> creates 100 nodejs containers in swarm cluster
+docker tag source_image tag_name -> tags the source image with specified tags
+docker push repo-name:tag -> uploads docker image to remote registry like dockerhub
+docker pull repo-name:tag -> downloads docker image from registry
+docker-compose up -d -> launches the container using compose file
+docker-compose down 
+
+docker-compose.yaml => use to run multiple serivces of containers
+version: '3'
+services:
+ web;
+  build: . -> builds the current folder
+  command: python manage.py runserver 0.0.0.0:8000
+  volumes: -> create volume to store data
+   - .:/app
+  ports:
+   - "8000:8000"
+
+Dockerfile => Used to create an image to run app in container
+FROM pyhton:3 -> base image
+ENV PYTHONUNBUFFERED 1 -> environment variable
+RUN mkdir /app
+WORKDIR /app -> working directory
+COPY requirements.txt /app/
+RUN pip install -r requirements.txt
+COPY . /app/
+
+requirements.txt => dependancies for container
+Django==2.2
+
+sudo docker-compose run web django-admin startproject project-name . -> creates project using docker-compose file
+docker-compose up -> launches in container
+docker exec container-name python manage.py startapp app-name -> execute app on existing container
+
+Dockerfile => Used to configure the container to dockerize already existing app
+FROM pyhton:3 -> base image
+ENV PYTHONUNBUFFERED 1 -> environment variable
+WORKDIR /app -> working directory
+ADD . /app -> add all to the working directory
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+COPY . /app
+
+requirements.txt => dependancies for container
+Django==2.2
+gunicorn==20.0.4 -> web server
+
+docker-compose.yaml => use to run multiple serivces of containers
+version: '3' -> version of docker
+services: -> used to include required services like web service, database service & etc...
+ web;
+  build: . -> builds the current folder
+  command: python manage.py runserver 0.0.0.0:8000 -> used to run the app
+  ports:
+   - "8000:8000"  
+  volumes: -> create volume to store data
+   - .:/app
+
+docker-compose build -> builds the container
+docker-compose up -> runs the container
+
+Dockerfile => To containerize an app to docker image
+FROM Ubuntu
+RUN apt-get update && apt-get -y install python python-pip
+RUN pip install flask flask-mysql
+COPY . /opt/source-code
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run --host=0.0.0.0 -> used to specify a command that will run when container starts
+EXPOSE 80
+
+docker build . -f Dockerfile -tAG account-name/app-name -> used to build image locally
+docker push account-name/app-name -> use to push image to public docker registry
+
+Dockerfile => commands vs entrypoint
+FROM Ubuntu
+ENTRYPOINT ["sleep"] -> docker run ubuntu 10
+ENTRYPOINT ["sleep"] -> docker run --entrypoint wait ubuntu 10
+CMD ["5"] -> docker run ubuntu
+CMD sleep 5 -> docker run ubuntu sleep 10
+
+docker-compose.yaml
+version: 2
+services:
+ web:
+  image: "image-name/app-name" (or) build: ./app-name -> specify location of local directory of image
+  ports:
+   - 5000:80
+  links: -> used to link the service to mongodb (not needed in latest version 3)
+   - database
+  depends_on:
+   - database
+ database:
+  image: "mongodb"
+  networks:
+   - back-end
+ messaging:
+  image: "redis:alpine"
+ orchestration:
+  image: "ansible"
+networks:
+ front-end:
+ back-end:
+
+docker-compose up
+
+docker run -d -p 5000:5000 --name registry registry:2 -> used to deploy a private registry
+docker image tag my-image localhost:5000/my-image -> used to tag the image
+docker push localhost:5000/my-image -> use to push to local private registry
+docker pull localhost:5000/my-image
+
+---KUBERNETES---
+Worker: Pod,Service,Ingress,ConfigMap,Secrets,Deployment,StatefulSet,Container runtime,kubelet,kubeproxy
+Master: Api Server,Scheduler,Control Manager,etcd
+minikube -> virtual environment with single node with a master & worker for local/test setup
+minikube start --vm-driver=hypervisor -> starts the minikube cluster 
+minikube status -> shows the status of minikube cluster
+minikube service service_name -> for assigning external ip for the specified service
+minikube addons enable ingress -> installs ingress controller pods
+kubectx -> service to switch between default namespaces
+kubectl version
+kubectl run --replicas=1000 nodejs -> creates 1000 containers in kubernetes cluster
+kubectl scale --replicas=2000 nodejs -> scales to 2000 cluster
+kubectl scale deployment nginx --replicas=9
+kubectl set image deployment/nginx nginx=2.3 -> updates image version
+kubectl rolling-update nodejs --image=nodejs:2 -> updates to another version
+kubectl rolling-update nodejs --rollback -> rollback to previous version
+kubectl cluster-info -> view information on cluster
+kubectl get all -> gets all components in cluster
+kubectl get nodes -> list all nodes in cluster
+kubectl get pods -> list pods available in node
+kubectl get pods -o wide -> list pods available in node with detailed info
+kubectl get rs -> lists replica sets available
+kubectl get sc(storageclass)
+kubectl get svc -> lists availabe services
+kubectl get service --watch
+kubectl get services
+kubectl get storageclass
+kubectl get replicaset
+kubectl get endpoints
+kubectl get deployment
+kubectl get deployment --all-namespaces=true -> gets deployment from all namespaces
+kubectl get deployment deployment_name -o yaml -> generates the status of deployment
+kubectl describe deployment name
+kubectl describe service service_name
+kubectl describe pod pod_name or kubectl descirbe svc service_name -> shows info on pod or service or deployment
+kubectl exec -it pod_name sh -> used to interact with the pod to execute commands like shell
+kubectl apply -f pod.yaml -> apply a yaml file like deployment,pods or services
+(or)
+kubectl create -f pod.yaml
+kubectl create deployment name --image=nginx -> creates an nginx deployment
+kubectl edit deployment name
+kubectl create namespace namespace_name -> creates namespace
+kubectl apply -f file_name.yaml --namespace=namespace_name -> assign to specific namespace
+kubectl get ns -> lists available namespace
+kubectl get all -n namespace_name
+kubectl get configMap -n namespace_name -> to get component of specific namespace
+kubectl config view -> view the config file for all clusters
+kubectl config current-context -> view the config for current cluster
+kubectl config get-contexts -> lists the config for availabe cluster
+kubectl config get-contexts cluster_name -> view config file for current cluster
+kubectl expose deployment dep_name --type=LoadBalancer --name=load_name --external-ip=1.1.1.1 --port=8080
+kubectl get pvc -> lists persisten volume claims
+kubectl describe pvc -nAMESPACE namespace_name pvc_name -> describes the specified pvc 
+kubectl logs -l pod_name
+kubectl delete pod pod_name -> deletes the pod
+kubectl delete deployment name -> deletes the deployment
+kubectl delete -f deployment_file.yaml
+kubectl delete ns namespace_name
+kubectl delete service name
+watch -x kubectl get all --namespace ns_name -> get status all deployed resource inside namespace
+
+Pods => Kubernetes Object Depoyment
+apiVersion: v1
+kind: Pod
+metadata:
+ name: nginx
+ labels:
+  name: nginx
+spec:
+ containers:
+ - name: nginx
+   image: nginx
+   ports:
+   - containerPort: 80
+   volumeMounts:
+   - mounPath: "/var/www/html"
+     name: myvol
+ volumes:
+ - name: myvol
+   persistentVolumeClaim:
+    claimName: pvc-name 
+
+Deployment => Kubernetes Object Depoyment (blueprint for pods)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: my-nginx
+ labels:
+  app: nginx
+spec: -> specification for the deployment
+ replicas: 2
+ selector:
+  matchLabels:
+   run: my-nginx
+ template: -> specfication for the pod
+  metadata:
+   labels:
+    run: my-nginx
+  spec: -> specification for the pods
+   containers:
+   - name: nginx
+     image: nginx
+     ports:
+     - containerPort: 80
+     env: -> environment variable
+     - name: USERNAME
+       valueFrom: (or) value: 
+        secretKeyRef:
+         name: db-secret
+         key: username
+     - name: PASSWORD
+       value:
+     - name: CONFIG_MAP
+       valueFrom:
+        configMapKeyRef:
+         name: db-configmap
+         key: database_url
+
+Secret => For storing secret info
+apiVersion: apps/v1
+kind: Secret
+metadata:
+ name: db-secret
+type: Opaque
+data:
+ username:
+ password:
+ rootpassword:
+
+ConfigMap => For storing url
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: db-configmap
+ namespace: namespace_name (optional)
+data:
+ database_url: my-nginx -> should match the Service name 
+
+--- -> file seperator used to describe multiple objects like deployments, services in same file 
+
+Services => For networking between internal services (internal load balancer)
+apiVersion: v1
+kind: Service
+metadata:
+ name: my-nginx
+ labels:
+  name: my-nginx
+spec:
+ selector:
+   run: my-nginx -> name should match label in deployment
+ clusterIP: None
+ ports:
+ - protocol: TCP 
+   port: 80 -> should match containerPort in deployment
+   targetPort: 8080
+
+Services => For External Serive Add Types as LoadBalancer & NodePort
+apiVersion: v1
+kind: Service
+metadata:
+ name: my-nginx
+ labels:
+  name: my-nginx
+spec:
+ selector:
+   run: my-nginx -> name should match label in deployment
+ type: LoadBalancer (or) NodePort
+ ports:
+ - protocol: TCP 
+   port: 80 -> should match containerPort in deployment
+   targetPort: 8080        
+   nodePort: -> for external ip address to access from browser
+
+Ingress => For sending ingress traffic from browser (Should install ingress controller pods)
+apiVersion: v1
+kind: Ingress
+metadata:
+ name: myapp-ingress
+spec:
+ rules:
+ - host: myapp.com
+   http:
+    paths:
+    - backend:
+       serviceName: my-nginx -> should match name from internal service
+       servicePort: 8080
+
+PersistentVolume => for storing data in the cluster
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: pv-name
+spec:
+ capacity:
+  storage: 5Gi
+ volumeMode: Filesystem
+ accessModes:
+  - ReadWriteOnce
+
+PersistentVolumeClaim => for claiming available persisten volume
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: pvc-name -> should match claimName in pod.yaml
+ namespace: namespace_name
+spec:
+ storageClassName: storage-class-name 
+ volumeMode: Filesystem
+ accessModes:
+  - ReadWriteOnce
+ resources:
+  requests:
+   storage: 10Gi
+
+StorageClass => creates persistent volumes dynamically in the background
+apiVersion: v1
+kind: StorageClass
+metadata:
+ name: storage-class-name -> should match name in PersistenceVolumeClaim
+provisioner: kubernetes.io/aws-ebs
+parameters:
+ type: i01
+ iopsPerGB: "10"
+ fsType: ext4  
+
+eks-cluster-create.yaml => Create cluster using amazon eks
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+ name: sample-cluster
+ region: us-east-1
+nodeGroups:
+ - name: ng-2
+   instanceType: t3:medium
+   desiredCapacity: 2
+   ssh:
+    publickeyPath: folder/file.pub
+
+kubectl create clusters -f eks-cluster-create.yaml -> creates a cluster in eks
+
+---HELM---
+Helm -> Package manager for kubernetes cluster
+Helm Charts -> Bundle of yaml files
+helm version --client
+helm search keyword -> search for helm charts
+helm create chart_name -> creates helm chart bundle
+helm install chart_name -> installs the charts from template folder with values from Values.yaml
+helm install chart_name location/
+helm install --values=my-values.yaml chart_name -> used to override values
+helm install --set version=2.0.0
+helm install chart_name . -f values.yaml -> pass values file in runtime
+helm install chart_name . --dry-run --debug -> shows status of install with values when installing
+helm install release_name --debug --dry-run chart_name
+helm install chart_name . --set replicaCount=2
+helm install chart_name . --set nameOverride=name -> overrides the name in chart
+helm upgrade chart_name
+helm upgrade chart_name .
+helm upgrade chart_name --set scale=9 image.tag=20.04
+helm upgrade --install name location/
+helm rollback chart_name version_number
+helm uninstall chart_name
+helm delete chart_name
+helm install chart_name -f customvalues.yaml -> install chart using custom values file
+helm dependency list
+helm dependency update
+helm template chart_name .\folder\ -> evaluates correctness of custsom helm chart
+helm lint chart_name -> checks for erros in chart
+chart_name test -> shows directory structure of given chart
+helm show values .
+helm list -a -> shows list of apps deployed using helm
+helm repo add name location/url
+helm repo add -> add a chart repository
+helm repo remove -> removes a chart repository
+helm repo list -> lists all chart repos
+helm repo update -> updates information of available charts locally from chart repos
+helm repo index -> generates an index file given a directory containing packages shorts
+helm search repo -> searches the repo
+helm search hub wordpress -> searches for wp in helm hub
+helm pull nginx --untar=true -> gets the nginx repo and unzips it
+helm package chart_name -> packages our helm charts into a package
+helm plugin list
+helm diff revision chart_name 1 2 -> plugin to see difference between revision 1 & 2
+
+Directory Structure
+mychart/ -> folder name
+ Chart.yaml -> meta info about chart
+ Values.yaml -> values for template file
+ charts/ -> chart dependencies folder
+ templates/ -> place to store template files
+  - deployment.yaml - ingress.yaml - service.yaml
+
+helmfile.yaml => reference file for helm chart to deploy multiple helmcharts
+environments: -> enviroment values
+  production: -> helm -environment production sync
+    values:
+    - production.yaml    
+---
+repositories: -> used only when repo should be fetched form online repositories(need helm git plugin)
+ - name: chart_name
+   url: git+https://github_repo_url@helm_chart_name?ref=master&parse=0
+
+releases:
+
+ - name: helm_chart_name
+   chart: ./helm_chart_location
+   installed: true (or) false -> true to install the chart
+   values:
+   - values.yaml.gotmpl -> template expressions used to pass values
+
+helmfile sync -> used to install helm chart from helmfile
+
+yaml config template => used as a template
+apiVersion: v1
+kind: Pod
+metadata:
+ name: {{.Values.name}}
+spec:
+ containers:
+ - name: {{.Values.container.name}}
+   image: {{.Values.container.image}}
+
+values.yaml
+name: my-app
+spec:
+ containers:
+ - name: my-app-container
+   image: my-app-image
+
+Chart.yaml
+apiVersion: v2 #mandatory
+name: demo app #mandatory
+description:
+type: application
+version: 22.3.1 #mandatory -> should be in same three decimal Semantic versioning 2.0 format
+appVersion:
+maintainers:
+ - name: any name
+
+templates/deployment.yaml
+apiVersion: v1
+kind: Deployment
+metadata:
+ name: {{.Values.name}} (or) {{ include "chart_name.name" . | nindent 4 }}
+spec:
+ replicas: {{.Values.scale}}
+ selector:
+  matchLabels:
+   app: nginx 
+ template:
+  metadata:
+   labels:
+    app: nginx
+  spec:
+   containers:  
+   - name: {{.Values.container.name}}
+     image: {{.Values.container.image}} #mandatory
+     ports:
+     - containerPort: 80 #mandatory
+
+values.yaml
+name: my-app
+spec:
+ scale: 3
+  spec:
+   containers:
+   - name: my-app-container
+     image: my-app-image  
+selector:
+ app.kubernetes.io/name: app-nginx
+
+templates/service.yaml
+kind: Service
+apiVersion: v1
+metadata:
+ labels:
+  app: "nginx-app"
+ name: nginx-service
+spec:
+ selector:
+  app: nginx (or) {{- toYaml .Values.selector| nindent 4 }}
+ ports:
+  - name: main
+    protocol: TCP
+    port: 80
+    targetPort: 80
+ type: NodePort
+
+templates/ingress.yaml
+kind: Ingress
+metadata:
+ name: nginx-ingress
+ annotations:
+  http.port: "443" -> exposing port
+spec: 
+ rules:
+ - http:
+    paths:
+    - path: /
+      backend:
+       serviceName: nginx-service -> routing to the service
+       servicePort: 80      
+
+_helpers.tpl => template function file
+{{- define "chart_name.name" -}}
+{{ print "my-app" (or) print .Release.Name }} -> release name is the name which is specified in helm install
+{{- end -}}
+
+deployment.yaml
+containers:
+ image: "{{ .Values.image.repository }}"
+ imagePullPolicy: {{ .Values.image.pullPolicy }}
+ env: -> placeholder range for keyvalue map
+   {{- range .Values.examplemap}}
+   - name: {{ .name }}
+     value: {{ .value }}
+   {{- end }}
+
+env-values.yaml => used to pass environment values using keyvalue pair
+examplemap:
+ - name: "USERNAME"
+   value: "test1"
+ - name: "PASSWORD"
+   value: "test2"
+
+values.yaml
+replicaCount: 1
+image:
+ repository: docker_image_url #mandatory
+ pullPolicy: IfNotPresent
+service:
+ type: ClusterIP (or) LoadBalancer (or) NodePort
+ port: 8080 #mandatory
+
+---TERRAFORM---
+terraform init
+terraform plan
+terraform apply
+terraform destroy --auto-approve
+
+Variables.tf -> define the variables used in main.tf
+variable "resource_group_name" {
+  type        = string
+  description = "RG name in Azure"
+}
+variable "location" {
+  type        = string
+  description = "Resources location in Azure"
+}
+variable "cluster_name" {
+  type        = string
+  description = "AKS name in Azure"
+}
+variable "kubernetes_version" {
+  type        = string
+  description = "Kubernetes version"
+}
+variable "system_node_count" {
+  type        = number
+  description = "Number of AKS worker nodes"
+}
+variable "acr_name" {
+  type        = string
+  description = "ACR name"
+}
+
+terraform.tfvars -> declare the values for the variables
+resource_group_name = "aks_tf_rg"
+location            = "CentralUS"
+cluster_name        = "aks-cluster"
+kubernetes_version  = "1.19.13"
+system_node_count   = 2
+acr_name            = "myacr3210"
+
+providers.tf -> declare the providers with version
+provider "azurerm" {
+  features {}
+}
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "2.39.0"
+    }
+  }
+}
+
+main.tf -> main configuration file with all the resources to be created
+resource "azurerm_resource_group" "aks-rg" {
+  name     = var.resource_group_name
+  location = var.location
+}
+
+resource "azurerm_role_assignment" "role_acrpull" {
+  scope                            = azurerm_container_registry.acr.id
+  role_definition_name             = "AcrPull"
+  principal_id                     = azurerm_kubernetes_cluster.aks.kubelet_identity.0.object_id
+  skip_service_principal_aad_check = true
+}
+
+resource "azurerm_container_registry" "acr" {
+  name                = var.acr_name
+  resource_group_name = azurerm_resource_group.aks-rg.name
+  location            = var.location
+  sku                 = "Standard"
+  admin_enabled       = false
+}
+
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = var.cluster_name
+  kubernetes_version  = var.kubernetes_version
+  location            = var.location
+  resource_group_name = azurerm_resource_group.aks-rg.name
+  dns_prefix          = var.cluster_name
+
+  default_node_pool {
+    name                = "system"
+    node_count          = var.system_node_count
+    vm_size             = "Standard_DS2_v2"
+    type                = "VirtualMachineScaleSets"
+    availability_zones  = [1, 2, 3]
+    enable_auto_scaling = false
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  network_profile {
+    load_balancer_sku = "Standard"
+    network_plugin    = "kubenet" 
+  }
+}
+
+output.tf -> Export some data to output file
+output "aks_id" {
+  value = azurerm_kubernetes_cluster.aks.id
+}
+
+output "aks_fqdn" {
+  value = azurerm_kubernetes_cluster.aks.fqdn
+}
+
+output "aks_node_rg" {
+  value = azurerm_kubernetes_cluster.aks.node_resource_group
+}
+
+output "acr_id" {
+  value = azurerm_container_registry.acr.id
+}
+
+output "acr_login_server" {
+  value = azurerm_container_registry.acr.login_server
+}
+
+resource "local_file" "kubeconfig" {
+  depends_on   = [azurerm_kubernetes_cluster.aks]
+  filename     = "kubeconfig"
+  content      = azurerm_kubernetes_cluster.aks.kube_config_raw
+}
+
+---AWS---
+aws configure -> configure aws through cli
+
+---AZURE AKS---
+az --version
+az account set --subscription subscription_id
+az account show -> shows the azure account
+az login -> to login from cli
+az provider register -n Microsoft.ContainerService -> following providers should be registered for aks
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider list -o table -> outputs provider list in a table format
+az group create --name myResourceGroup --location eastus -> creates resource group
+az acr create --resource-group myResourceGroup --name myACR --sku Basic --admin-enabled true -> creates azure container registry to store container images
+az acr login --name myACR -> login to acr to add image after by using docker push
+az aks create --resource-group myResourceGroup --name myAKSCluster --location eastus --attach-acr myACR --node-count 2 --enable-addons monitoring --generate-ssh-keys --kubernetes-version 1.21.9 --node-vm-size=Standard_D2as_v4 --node-count 2 -> creates aks cluster with 2 worker nodes
+az aks install-cli -> installs kubectl cli
+az aks show --name myAKSCluster --resource-group myResourceGroup -> displays the cluster info
+az aks browse --resource-group myResourceGroup --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing -> connect to the cluster to execute kubectl commands
+az acr build --registry myACR --image image_name:v1 --file Dockerfile . -> builds image in acr using dockerfile in local directory
+az group delete --name myResourceGroup --yes --no-wait -> deletes the cluster
